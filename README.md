@@ -1,7 +1,7 @@
 # ephemeral-ssh
 This is a silly solution to a silly problem.
 
-Some _secure_ implementations involve a "gateway" or "balabit" in order to segment access to hosts on a remote network. Due to this implementation, one must specify the following options to connect to the remote host: `ssh -o "ForwardAgent=yes" gu=gatewayUsername@serverUsername@serverAddress@gatewayAddress`
+Some _secure_ implementations involve a "gateway" in order to segment access to hosts on a remote network. Due to this implementation, one must specify the following options to connect to the remote host: `ssh -o "ForwardAgent=yes" gu=gatewayUsername@serverUsername@serverAddress@gatewayAddress`
 
 The problem that I ran into was utilizing `scp` to transfer files between my host and the remote host due to the agent forwarding option not being present in my version of SSH (OpenSSH_8.1p1). The easy solution was to pull the source files for one of the newer versions of SSH. [OpenSSH_8.4p1](https://www.openssh.com/txt/release-8.4) implements the agent forwarding feature for SCP with the `-A` flag.
 
@@ -41,5 +41,6 @@ scp -A -i /containerPath/to/sshPrivateKey \
 /containerPath/to/file gu=gatewayUsername@serverUsername@serverAddress@gatewayAddress:/serverPath/to/destination'
 ```
 
-### Notes
-I'll soon be adding a shell function snippet to make this less cumbersome to run. Additionally, I'd like to implement a solution that also pulls and compiles a given version of Alpine seeing as I got lucky that `alpine:latest` had the version of OpenSSH necessary for this.
+### TODO
+- Add a shell function snippet to make this less cumbersome to run 
+- Implement a solution that pulls and compiles a given version of Alpine seeing as I got lucky that `alpine:latest` had the version of OpenSSH necessary for this.
