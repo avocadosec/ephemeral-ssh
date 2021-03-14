@@ -1,7 +1,7 @@
 # ephemeral-ssh
 This is a silly solution to a silly problem.
 
-Some _secure_ implementations involve a "gateway" in order to segment access to hosts on a remote network. Due to this implementation, one must specify the following options to connect to the remote host: `ssh -o "ForwardAgent=yes" gu=gatewayUsername@serverUsername@serverAddress@gatewayAddress`
+Some _secure_ implementations involve a "gateway" in order to segment access to hosts on a remote network. Due to this implementation, one must specify the following options to connect to the remote host: `ssh -A gu=gatewayUsername@serverUsername@serverAddress@gatewayAddress`
 
 The problem that I ran into was utilizing `scp` to transfer files between my host and the remote host due to the agent forwarding option not being present in my version of SSH (OpenSSH_8.1p1). The easy solution was to pull the source files for one of the newer versions of SSH. [OpenSSH_8.4p1](https://www.openssh.com/txt/release-8.4) implements the agent forwarding feature for SCP with the `-A` flag.
 
@@ -11,7 +11,10 @@ The problem that I ran into was utilizing `scp` to transfer files between my hos
 gu=gatewayUsername@serverUsername@serverAddress@gatewayAddress:/serverPath/to/destination
 ```
 
-While the above example solves my problem, I don't like that I had to compile the binaries seeing as this meant I needed to either specify the path or replace the system binaries. The silly solution was to create a container-based implementation utilizing `OpenSSH_8.4p1`. Luckily, the `alpine:latest` image includes `OpenSSH_8.4p1` in it's APK repositories. Below are the instructions for building the image with `OpenSSH_8.4p1` installed and the `/root/.ssh/` directory created.
+While the above example solves my problem, I don't like that I had to compile the binaries seeing as this meant I needed to either specify the path or replace the system binaries. The silly solution was to create a container-based implementation utilizing `OpenSSH_8.4p1`. Luckily, the `alpine:latest` image includes `OpenSSH_8.4p1` in it's APK repositories. **You can also use this without the gatway user option in situations not requiring a gateway.**
+
+
+Below are the instructions for building the image with `OpenSSH_8.4p1` installed and the `/root/.ssh/` directory created.
 
 
 ### Build the image from the Dockerfile
