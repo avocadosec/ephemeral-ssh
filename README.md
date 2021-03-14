@@ -65,7 +65,7 @@ scp -A -i /containerPath/to/sshPrivateKey \
 - `-v /hostPath/to/file:/containerPath/to/file` specifies a volume for the container with the host source.
 - `-A` enables agent forwarding for scp.
 - `-i /containerPath/to/sshPrivateKey` specifies the private key to use for authentication.
-- `-o "StrictHostKeyChecking=no"` direct scp to bypass the host verification step that requires user input.
+- `-o "StrictHostKeyChecking=no"` directs scp to bypass the host verification step that requires user input.
 
 ### TODO
 - Implement a solution for keys with a passphrase
