@@ -42,4 +42,4 @@ scp -A -i /containerPath/to/sshPrivateKey \
 ```
 
 ### Notes
-I'd like to implement a solution that also pulls and compiles a given version of Alpine seeing as I got lucky that `alpine:latest` had the version of OpenSSH necessary for this.
+I'll soon be adding a shell function snippet to make this less cumbersome to run. Additionally, I'd like to implement a solution that also pulls and compiles a given version of Alpine seeing as I got lucky that `alpine:latest` had the version of OpenSSH necessary for this.
