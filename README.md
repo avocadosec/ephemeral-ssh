@@ -1,7 +1,10 @@
 # ephemeral-ssh
 This is a silly solution to a silly problem.
 
-Some _secure_ implementations involve a "gateway" in order to segment access to hosts on a remote network. Due to this implementation, one must specify the following options to connect to the remote host: `ssh -A gu=gatewayUsername@serverUsername@serverAddress@gatewayAddress`
+Some _secure_ implementations involve a "gateway" in order to segment access to hosts on a remote network. Due to this implementation, one must specify the following options to connect to the remote host: 
+```console
+ssh -A gu=gatewayUsername@serverUsername@serverAddress@gatewayAddress
+```
 
 The problem that I ran into was utilizing `scp` to transfer files between my host and the remote host due to the agent forwarding option not being present in my version of SSH (OpenSSH_8.1p1). The easy solution was to pull the source files for one of the newer versions of SSH. [OpenSSH_8.4p1](https://www.openssh.com/txt/release-8.4) implements the agent forwarding feature for SCP with the `-A` flag.
 
