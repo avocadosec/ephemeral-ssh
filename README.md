@@ -63,6 +63,7 @@ scp -A -i /containerPath/to/sshPrivateKey \
 #### Command flag explanations
 - `--rm` removes the container after running. This helps reduce the footprint of our keys being outside of their original location.
 - `-v /hostPath/to/file:/containerPath/to/file` specifies a volume for the container with the host source.
+- `-c` interprets the string of commands specified between the single quatotation marks.
 - `-A` enables agent forwarding for scp.
 - `-i /containerPath/to/sshPrivateKey` specifies the private key to use for authentication.
 - `-o "StrictHostKeyChecking=no"` directs scp to bypass the host verification step that requires user input.
