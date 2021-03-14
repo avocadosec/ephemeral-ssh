@@ -1,7 +1,7 @@
 # ephemeral-ssh
 This is a silly solution to a silly problem.
 
-Some _secure_ implementations involve a "gateway" in order to segment access to hosts on a remote network. Due to this implementation, one must specify the following options to connect to the remote host: 
+Some _secure_ infrastructure implementations involve a "gateway" in order to segment access to hosts on a remote network. Due to this implementation, one must specify the following options to connect to the remote host: 
 ```console
 ssh -A gu=gatewayUsername@serverUsername@serverAddress@gatewayAddress
 ```
