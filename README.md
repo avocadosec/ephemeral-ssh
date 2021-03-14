@@ -68,7 +68,7 @@ scp -A -i /containerPath/to/sshPrivateKey \
 - `-o "StrictHostKeyChecking=no"` directs scp to bypass the host verification step that requires user input.
 
 ### TODO
-- Implement a solution for keys with a passphrase
+- Implement a solution for keys with a passphrase.
 - Implement a solution to pull files from the remote server.
 - Implement a solution that pulls and compiles a given version of Alpine seeing as I got lucky that `alpine:latest` had the version of OpenSSH necessary for this.
 - Add a shell function snippet to make this less cumbersome to run.
