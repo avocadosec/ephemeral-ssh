@@ -17,7 +17,7 @@ ssh -A gu=gatewayUsername@serverUsername@serverAddress@gatewayAddress
 
 While the first example snippet solves my problem, I don't like that I had to compile the binaries seeing as this meant I needed to either specify the path or replace the system binaries. The silly solution was to create a container-based implementation utilizing `OpenSSH_8.4p1`. Luckily, the `alpine:latest` image includes `OpenSSH_8.4p1` in it's APK repositories. **You can also use this without the gatway user option in situations not requiring a gateway.**
 
-Below are the instructions for building the image with `OpenSSH_8.4p1` installed and the `/root/.ssh/` directory created.
+Below are the instructions for building the image with `OpenSSH_8.4p1` installed and the `/root/.ssh/` directory created. It is assumed that [Docker](https://docs.docker.com/engine/install/) is installed on the system that ephemeral-ssh is to be used.
 
 ### Build the image from the Dockerfile
 ```shell
