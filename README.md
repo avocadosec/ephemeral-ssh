@@ -36,7 +36,7 @@ docker images
 ### Command Examples
 These examples assume that your public key is added to the authorized_keys file on the remote host and that you don't have a passphrase for that key. Eventually, I'll add a solution for keys with a passphrase since passphrases should **always** be used for key pairs. :wink:
 
-#### Command to run this for the gateway problem with forwarding
+#### Run this if you are using the `gu=` (gateway) option
 ```shell
 docker run --rm \
 -v /hostPath/to/sshPrivateKey:/containerPath/to/sshPrivateKey \
@@ -48,7 +48,7 @@ scp -A -i /containerPath/to/sshPrivateKey \
 /containerPath/to/file gu=gatewayUsername@serverUsername@serverAddress@gatewayAddress:/serverPath/to/destination'
 ```
 
-#### Command to run this without the gateway problem
+#### Run this if you aren't using the `gu=` (gateway) option
 ```shell
 docker run --rm \
 -v /hostPath/to/sshPrivateKey:/containerPath/to/sshPrivateKey \
