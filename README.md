@@ -34,7 +34,7 @@ docker build -t ephemeral-ssh .
 docker images
 ```
 ### Command Examples
-These examples assume that your public key is added to the authorized_keys file on the remote host and that you don't have a passphrase for that key. Eventually, I'll add a solution for keys with a passphrase since passphrases should **always** be used for key pairs. :wink:
+These examples assume that your public key is added to the authorized_keys file on the remote host and that you don't have a passphrase for that key pair. Eventually, I'll add a solution for keys with a passphrase since passphrases should **always** be used for key pairs. :wink:
 
 #### Run this if you are using the `gu=` (gateway) option
 ```shell
